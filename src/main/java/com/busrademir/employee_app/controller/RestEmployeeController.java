@@ -2,6 +2,7 @@ package com.busrademir.employee_app.controller;
 
 
 import com.busrademir.employee_app.model.Employee;
+import com.busrademir.employee_app.model.UpdateEmployee;
 import com.busrademir.employee_app.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,12 @@ public class RestEmployeeController {
     @DeleteMapping("/delete-employee/{id}")
     public boolean deleteEmployee(@PathVariable(name = "id", required = true) String id) {
         return employeeService.deleteEmployee(id);
+    }
+
+    @PutMapping("update-employee/{id}")
+    public Employee updateEmployee(@PathVariable(name = "id", required = true) String id,
+                                   @RequestBody UpdateEmployee request){
+        return employeeService.updateEmployee(id, request);
     }
 
 }

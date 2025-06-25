@@ -1,6 +1,7 @@
 package com.busrademir.employee_app.service;
 
 import com.busrademir.employee_app.model.Employee;
+import com.busrademir.employee_app.model.UpdateEmployee;
 import com.busrademir.employee_app.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,9 @@ public class EmployeeService {
 
     public boolean deleteEmployee(String id) {
         return employeeRepository.deleteEmployee(id);
+    }
+
+    public Employee updateEmployee(String id, UpdateEmployee request) {
+        return employeeRepository.updateEmployee(id, request);
     }
 }
