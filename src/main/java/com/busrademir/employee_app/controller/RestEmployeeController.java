@@ -33,4 +33,14 @@ public class RestEmployeeController {
         return employeeService.getEmployeeWithParams(firstName, lastName);
     }
 
+    @PostMapping("/save-employee")
+    public Employee saveEmployee(@RequestBody Employee newEmployee){
+        return employeeService.saveEmployee(newEmployee);
+    }
+
+    @DeleteMapping("/delete-employee/{id}")
+    public boolean deleteEmployee(@PathVariable(name = "id", required = true) String id) {
+        return employeeService.deleteEmployee(id);
+    }
+
 }
